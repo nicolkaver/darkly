@@ -1,0 +1,18 @@
+# When we click on Sign in button on the BornToSec website, we arrive at a Login page.
+# Here a username and a password is needed in order to get connected.
+
+# We will use hydra in order to bruteforce our access to the website.
+
+sudo hydra -L top-username-shortlist.txt -P rockyou.txt 192.168.56.103 http-get-form '/index.php:page=signin&username=^USER&password=^PASS^&Login=Login:F=images/WrongAnswer.gif'
+
+# Option explanations:
+
+# -L will give hydra the login that we are trying to use. In our case, we will use a list of the most commonly used logins. 
+# -P stands for passwords file. We will use a famous dictionary that contains over 14,341,564 passwords that were previously leaked in data breaches.
+# We will then specify the address of the website that we want to bruteforce.
+# In the part http-get-from we will define the parameters that we will need to log in:
+# We provide it the URL of the login page, a username, a password, and, ultimately, the page where we will land in case of a failure.
+
+# After a few seconds, we get several usernames with associated passwords. We can see that probably all most used usernames are present in the list hydra returned. The password is shadow each time.
+
+In order to protect our website from being bruteforced, there are two widely used protections. Firstly, we can block a client who sends too many requests to our website. For an even stronger security, it is highly recommended to implement a strong password policy (passwords containing capital letters, special characters and numbers).
