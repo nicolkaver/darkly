@@ -1,0 +1,9 @@
+# When we analyse cookies of the website, we can see that there is a cookie with the name I-am-admin and a value d42f2da1df5ecdf29be4ac27edda0c12.
+
+# We put it in the www.dcode.fr code detector and we find out that it means false in MD5 code.
+
+# All we need to do is to encrypt true in MD5, put it to the cookie's value and refresh the page.
+
+# There we find our flag.
+
+# It is a good practice to use a strong encoding system and not simply commonly known codes that can be easily decrypted using basic and easily accessible decryption tools. 
